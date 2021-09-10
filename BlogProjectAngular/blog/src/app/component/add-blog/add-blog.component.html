@@ -1,0 +1,38 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="OnSubmit(form)">
+  <input type="hidden" name="blogId" [value]="service.blogFormData.BlogId" />
+  <div class="form-group">
+    <label for="">Blog Title</label>
+    <input
+      type="text"
+      class="form-control form-control-lg"
+      placeholder="Enter Blog Title"
+      name="BlogTitle"
+      #blogTitle="ngModel"
+      [(ngModel)]="service.blogFormData.BlogTitle"
+      required
+      maxlength="100"
+      [class.invalid]="blogTitle.invalid &#038;&#038; blogTitle.touched"
+    />
+  </div>
+  <div class="form-group mt-3">
+    <label for="">Content</label>
+    <textarea
+      name="cardNumber"
+      placeholder="Enter Blog content"
+      class="form-control form-control-lg"
+      #blogContent="ngModel"
+      [(ngModel)]="service.blogFormData.Content"
+      required
+      [class.invalid]="blogContent.invalid &#038;&#038; blogContent.touched"
+    ></textarea>
+  </div>
+  <div class="form-group mt-4">
+    <button
+      class="btn btn-info bnt-lg btn-block"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

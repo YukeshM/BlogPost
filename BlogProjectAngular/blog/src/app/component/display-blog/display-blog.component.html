@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <h1>Kamal Hassan Blog Page</h1>
+      <div *ngFor="let item of Service.list">
+        <div *ngIf="item.id == Service.id">
+          <h1>{{ item.blogTitle }}</h1>
+          <p>{{ item.content }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <h3>Blogs list</h3>
+      <ul *ngFor="let item of Service.list">
+        <li (click)="onGetBlog(item.id)">
+          <a class="nav-link text-dark">{{ item.blogTitle }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-end">
+  <div class="col-9">
+    <div class="col-sm-1">
+      <a class="btn btn-primary" routerLink="../add-blog">Add Blog</a>
+    </div>
+    <div class="col-sm-1">
+      <a class="btn btn-info ml-2" routerLink="../edit-blog"> Edit Blog </a>
+    </div>
+  </div>
+</div>
